@@ -1,7 +1,11 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProviders';
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext)
+
     const handleRegister = event =>{
         event.preventDefault();
         const form = event.target;
@@ -10,6 +14,12 @@ const Register = () => {
         const email = form.email.value;   
         const password = form.password.value;
         console.log(name, photo, email, password);
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.log(error))
         form.reset();
     }
     return (
@@ -18,7 +28,7 @@ const Register = () => {
                 <div className="hero-content flex-col lg:flex-row">
 
                     <div className="text-center lg:text-left ">
-                        <img className='rounded-lg ' src="https://easydrawingguides.com/wp-content/uploads/2017/01/how-to-draw-mickey-mouse-featured-image-1200.png" alt="" srcset="" style={{ height: '350px', width: '400px' }} />
+                        <img className='rounded-lg ' src="https://easydrawingguides.com/wp-content/uploads/2017/01/how-to-draw-mickey-mouse-featured-image-1200.png" alt="" style={{ height: '350px', width: '400px' }} />
 
                     </div>
                     <div className="ms-4  card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ms-10">
