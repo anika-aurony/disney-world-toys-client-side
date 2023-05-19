@@ -38,10 +38,11 @@ const Header = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <Link to="/"><li><a>Home</a></li></Link>
-                        <Link to="/"><li><a>All Toys</a></li></Link>
-                        <Link to="/"><li><a>My Toys</a></li></Link>
-                        <Link to="/"><li><a>Add a Toy</a></li></Link>
-                        <Link to="/"><li><a>Blogs</a></li></Link>
+                        <Link to="/allToy"><li><a>All Toys</a></li></Link>
+                        {user && <Link to="/myToy"><li><a>My Toys</a></li></Link> }
+                        
+                        {user && <Link to="/addAToy"><li><a>Add a Toy</a></li></Link>}
+                        <Link to="/blogs"><li><a>Blogs</a></li></Link>
 
 
                     </ul>
