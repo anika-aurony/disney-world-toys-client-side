@@ -1,7 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProviders';
 
 const Login = () => {
+
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
         event.preventDefault();
@@ -9,7 +15,26 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
-        // form.reset();
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true })
+            })
+            .catch(error => console.log(error));
+        form.reset();
+    }
+
+    const handleGoogleSignin = () =>{
+        signInWithGoogle()
+        .then(result =>{
+            const logUser = result.user;
+            console.log(logUser);
+            navigate(from, { replace: true })
+        })
+        .catch(error=>{
+            console.log(error.message)
+        })
     }
     return (
         <div>
@@ -30,21 +55,29 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                                    <input type="text" name='email' placeholder="email" className="input input-bordered" required/>
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" placeholder="password" className="input input-bordered" name='password' />
+                                    <input type="text" placeholder="password" className="input input-bordered" name='password' required/>
 
                                 </div>
                                 <div className="form-control mt-4 mb-3">
-                                    <button className="btn bg-[purple]">Login</button>
+                                    <button className="btn bg-[#e879f9]">Login</button>
                                 </div>
                             </form>
+
                             <hr />
                             <p className='my-2'>New to Disney World Toys? <span className='text-[purple]'><Link to="/register">Create Account</Link></span> </p>
+                            <div className="divider">OR</div>
+                            <div className="form-control  mb-3">
+                                <button className="btn bg-[#f472b6]" onClick={handleGoogleSignin}>
+                                    <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="" className='h-10 pe-2' />
+                                    Login with Google</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
