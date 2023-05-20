@@ -56,7 +56,7 @@ const MyToy = () => {
                                 <td>{mytoy.quantity}</td>
                                 <td>{mytoy.price}</td>
                                 <td>{mytoy.sellerName}</td>
-                                <td><button className="btn btn-ghost btn-xs"><Link>Update</Link></button></td>
+                                <td><button className="btn btn-ghost btn-xs"><Link to={`/update/${mytoy._id}`}>Update</Link></button></td>
                                 <td><button className="btn btn-ghost btn-xs"><Link>Delete</Link></button></td>
                                
                         </tr>)
