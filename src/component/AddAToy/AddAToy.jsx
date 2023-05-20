@@ -3,11 +3,39 @@ import { AuthContext } from '../../providers/AuthProviders';
 
 const AddAToy = () => {
     const { user } = useContext(AuthContext)
+
+    const handleAddToy = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const sellerName = user?.displayName;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const photo = form.photo.value;
+        const email = user?.email;
+        const name = form.name.value;
+        const subcategory = form.subcategory.value;
+        const quantity = form.quantity.value;
+        const description = form.description.value;
+        const toy = {sellerName, price, rating, photo, email, name, subcategory, quantity, description}
+        console.log(toy);
+
+        fetch('http://localhost:5000/toys',{
+                method: 'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body: JSON.stringify(toy)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+        })
+    }
     
     return (
         <div>
 
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-[#f3e8ff]">
                 <h1>Add A Toy</h1>
                 <div className="hero-content ">
 
@@ -15,13 +43,14 @@ const AddAToy = () => {
 
                         <div className="card-body">
                         <h1 className="text-2xl text-center font-bold">Add A Toy </h1>
+                        <form onSubmit={handleAddToy} >
                             <div className='hero-content flex-col lg:flex-row-reverse'>
                                 <div >
                                     <div className="form-control">
                                         <label className="label">
-                                            <span className="label-text"> Seller Email</span>
+                                            <span className="label-text"> <b>Seller Email:</b> {user.email} </span>
                                         </label>
-                                        <input type="text" placeholder={user.email} className="input input-bordered" />
+                                        {/* <input type="text" placeholder= name='email' className="input input-bordered" /> */}
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
@@ -48,9 +77,9 @@ const AddAToy = () => {
                                 <div>
                                     <div className="form-control">
                                         <label className="label">
-                                            <span className="label-text">Seller Name</span>
+                                            <span className="label-text"><b>Seller Name:</b> {user?.displayName}</span>
                                         </label>
-                                        <input type="text" placeholder={user.displayName} className="input input-bordered" name='sellerName' />
+                                       
 
                                     </div>
                                     <div className="form-control">
@@ -80,8 +109,9 @@ const AddAToy = () => {
                                         <input type="text" placeholder="Description" className="input input-bordered" name="description" required />
                                     </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Submit</button>
+                                <button className="btn btn-primary bg-[purple]">Submit</button>
                             </div>
+                        </form>
                         </div>
                     </div>
                 </div>

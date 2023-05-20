@@ -23,14 +23,15 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[purple] rounded-box w-52">
                             <Link to="/"><li><a>Home</a></li></Link>
-                            <Link to="/"><li><a>All Toys</a></li></Link>
-                            <Link to="/"><li><a>My Toys</a></li></Link>
-                            <Link to="/"><li><a>Add a Toy</a></li></Link>
-                            <Link to="/"><li><a>Blogs</a></li></Link>
+                            <Link to="/allToys"><li><a>All Toys</a></li></Link>
+                            {user && <Link to="/myToy"><li><a>My Toys</a></li></Link>}
+
+                            {user && <Link to="/addAToy"><li><a>Add a Toy</a></li></Link>}
+                            <Link to="/blogs"><li><a>Blogs</a></li></Link>
 
                         </ul>
                     </div>
-                    <img className='h-12 ms-10  ' src="https://w7.pngwing.com/pngs/760/148/png-transparent-mickey-mouse-logo-the-walt-disney-company-disney-channel-mickey-mouse-food-heroes-hand-thumbnail.png" alt=""  />
+                    <img className='h-12 ms-10  ' src="https://w7.pngwing.com/pngs/760/148/png-transparent-mickey-mouse-logo-the-walt-disney-company-disney-channel-mickey-mouse-food-heroes-hand-thumbnail.png" alt="" />
                     <a className="btn btn-ghost normal-case text-xl">
 
                         Disney World Toys</a>
@@ -38,9 +39,9 @@ const Header = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <Link to="/"><li><a>Home</a></li></Link>
-                        <Link to="/allToy"><li><a>All Toys</a></li></Link>
-                        {user && <Link to="/myToy"><li><a>My Toys</a></li></Link> }
-                        
+                        <Link to="/allToys"><li><a>All Toys</a></li></Link>
+                        {user && <Link to="/myToy"><li><a>My Toys</a></li></Link>}
+
                         {user && <Link to="/addAToy"><li><a>Add a Toy</a></li></Link>}
                         <Link to="/blogs"><li><a>Blogs</a></li></Link>
 
@@ -49,7 +50,7 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     {user && <p className='text-white pt-2 me-3 ' data-toggle="tooltip" data-placement="right" title={user?.displayName}> <img src={user?.photoURL
-                    } alt=""  style={{ height: '40px', borderRadius: '50%', width: '40px' }} /> </p>}
+                    } alt="" style={{ height: '40px', borderRadius: '50%', width: '40px' }} /> </p>}
 
 
 
