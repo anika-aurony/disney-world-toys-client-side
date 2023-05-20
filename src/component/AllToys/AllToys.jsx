@@ -1,10 +1,12 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
-import ShowAllToys from '../ShowAllToys/ShowAllToys';
+import { Link, useLoaderData } from 'react-router-dom';
+
 
 const AllToys = () => {
     const toys = useLoaderData();
     // console.log(toys)
+
+
     return (
 
         <div className='bg-[#ede9fe]'>
@@ -40,7 +42,7 @@ const AllToys = () => {
                                 <td>{toy.price}</td>
                                 <td>{toy.sellerName}</td>
                                 <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
+                                    <button  className="btn btn-ghost btn-xs"><Link to={`/showDetails/${toy._id}`} >details</Link></button>
                                 </th>
                             </tr>)
                         }
