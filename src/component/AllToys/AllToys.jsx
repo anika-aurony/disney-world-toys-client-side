@@ -11,7 +11,7 @@ const AllToys = () => {
 
         <div className='bg-[#ede9fe]'>
             <h1 className='text-3xl text-center pt-3'>All Toys</h1>
-            <div className="overflow-x-auto w-full  p-7">
+            <div className="overflow-x-auto w-3/4 mx-auto  p-7">
                 <table className="table  w-full ">
                     {/* head */}
                     <thead>
