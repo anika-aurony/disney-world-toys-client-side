@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const MyToy = () => {
     const { user } = useContext(AuthContext);
     const [mytoys, setmyToys] = useState('');
-    // const [loading, setLoading] = ('true');
+
     const url = `http://localhost:5000/toy?email=${user?.email}`
     console.log(mytoys)
     useEffect(() => {
@@ -14,13 +15,41 @@ const MyToy = () => {
             .then(res => res.json())
             .then(data => setmyToys(data))
     }, [])
-    // if(mytoys.length>0){
-    //     setLoading == 'false';
-    // }
+
+
+    const handleDelete = id => {
+        Swal.fire({
+            title: 'Do you want to delete?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            denyButtonText: `Don't Delete`,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/toys/${id}`, {
+                    method: 'Delete'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            const remaining = mytoys.filter(mytoy => mytoy._id !== id);
+                            setmyToys(remaining)
+                        }
+                    })
+                Swal.fire('Deleted')
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved')
+            }
+        })
+
+    }
+
+
     console.log(mytoys)
     return (
         <div className='bg-[#ede9fe]'>
-            
+
             <h1 className='text-3xl text-center pt-3'>My Toys</h1>
             <div className="overflow-x-auto w-full   py-5 px-8    ">
                 <table className="table  w-full ">
@@ -41,26 +70,26 @@ const MyToy = () => {
                         </tr>
                     </thead>
                     <tbody className='bg-[#ede9fe]'>
-                        
-                    {
-                       mytoys.length>0 && mytoys.map(mytoy => <tr key={mytoy._id}>
-                            <td><div className="avatar">
+
+                        {
+                            mytoys.length > 0 && mytoys.map(mytoy => <tr key={mytoy._id}>
+                                <td><div className="avatar">
                                     <div className="mask mask-squircle w-12 h-12">
                                         <img src={mytoy.photo} />
                                     </div>
                                 </div></td>
-                            <td>{mytoy.name}</td>
-                            <td>{mytoy.name}</td>
+                                <td>{mytoy.name}</td>
+                                <td>{mytoy.name}</td>
                                 <td>{mytoy.subcategory}</td>
-                                
+
                                 <td>{mytoy.quantity}</td>
                                 <td>{mytoy.price}</td>
                                 <td>{mytoy.sellerName}</td>
                                 <td><button className="btn btn-ghost btn-xs"><Link to={`/update/${mytoy._id}`}>Update</Link></button></td>
-                                <td><button className="btn btn-ghost btn-xs"><Link>Delete</Link></button></td>
-                               
-                        </tr>)
-                    }
+                                <td><button className="btn btn-ghost btn-xs" onClick={() => handleDelete(mytoy._id)}>Delete</button></td>
+
+                            </tr>)
+                        }
 
 
                     </tbody>
