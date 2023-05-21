@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 
 const AllToys = () => {
     const toys = useLoaderData();
     const [matchedToys, setMactedToys] = useState([])
     // console.log(toys)
-    const handleSearch = event =>{
+    useTitle('All Toys')
+
+    const handleSearch = event => {
         event.preventDefault();
         const name = event.target.name.value;
-        const matchToys = toys.filter(toy=>toy.name == name);
+        const matchToys = toys.filter(toy => toy.name == name);
         setMactedToys(matchToys);
 
     }
@@ -29,7 +32,29 @@ const AllToys = () => {
                     </div>
                 </div>
             </form>
-            {/* {matchedToys.length>0 &&  <div>{matchedToys[0].name}</div>} */}
+            {matchedToys.length > 0 && <div className='text-center w-1/2 mx-auto'>
+                <h1 className='text-2xl py-3'>Toys by Search</h1>
+                <table className='table'>
+                <tbody>
+                    {
+                        matchedToys.map(matchedToy => <tr key={matchedToy._id}>
+                            <td><div className="avatar">
+                                <div className="mask mask-squircle w-12 h-12">
+                                    <img src={matchedToy.photo} />
+                                </div>
+                            </div></td>
+                            <td>{matchedToy.name}</td>
+                            <td>{matchedToy.subcategory}</td>
+
+                            <td>{matchedToy.quantity}</td>
+                            <td>{matchedToy.price}</td>
+                            <td>{matchedToy.sellerName}</td>
+
+                        </tr>)
+                    }
+                </tbody>
+                </table>
+            </div>}
             <div className="overflow-x-auto w-3/4 mx-auto  p-7">
                 <table className="table  w-full ">
                     {/* head */}

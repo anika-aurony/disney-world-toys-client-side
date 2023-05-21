@@ -4,8 +4,10 @@ import ShopbyCategory from '../ShopbyCategory/ShopbyCategory';
 import Gallery from '../Gallery/Gallery';
 import FeaturedToys from '../FeaturedToys/FeaturedToys';
 import SoftToys from '../SoftToys/SoftToys';
+import useTitle from '../../../hooks/useTitle';
 
 const Home = () => {
+    useTitle('Home')
     return (
         <div className=' bg-[#ede9fe] '>
             <Banner></Banner>

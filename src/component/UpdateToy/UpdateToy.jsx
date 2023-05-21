@@ -1,12 +1,14 @@
 // import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 // import { AuthContext } from '../../providers/AuthProviders';
 
 const UpdateToy = () => {
     const toy = useLoaderData();
     // const {user} = useContext(AuthContext)
     console.log(toy)
+    useTitle('Update a Toy')
     const handUpdate = event => {
         event.preventDefault();
         const form = event.target;

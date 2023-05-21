@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 // import { useLoaderData } from 'react-router-dom';
 
 const ShowDetail = () => {
     const  [toy, setToy] = useState('');
     const params = useParams()
+    useTitle('Details')
     console.log(toy)
     console.log(`https://disney-world-toys-server-anika-tasnim-aurony.vercel.app/toys/${params.id}`)
     useEffect(() => {

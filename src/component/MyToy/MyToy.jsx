@@ -2,12 +2,14 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
 
 const MyToy = () => {
     const { user } = useContext(AuthContext);
     const [mytoys, setmyToys] = useState('');
 
+    useTitle('My Toys')
     const url = `https://disney-world-toys-server-anika-tasnim-aurony.vercel.app/toy?email=${user?.email}`
     console.log(mytoys)
     useEffect(() => {
