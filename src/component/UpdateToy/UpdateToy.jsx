@@ -34,6 +34,7 @@ const UpdateToy = () => {
                         confirmButtonText: 'Cool'
                       })
                 }
+                form.reset();
             })
 
     }

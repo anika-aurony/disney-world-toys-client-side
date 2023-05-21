@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProviders';
 import useTitle from '../../../hooks/useTitle';
 
 const Login = () => {
-
+    const [error, setError] = useState();
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -18,13 +18,16 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        setError('')
         signIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 navigate(from, { replace: true })
             })
-            .catch(error => console.log(error));
+            .catch(error =>{ console.log(error.message)
+                    setError(error.message)
+            });
         form.reset();
     }
 
@@ -71,7 +74,7 @@ const Login = () => {
                                     <button className="btn bg-[#e879f9]">Login</button>
                                 </div>
                             </form>
-
+                            <p className='text-[red]'>{error}</p>
                             <hr />
                             <p className='my-2'>New to Disney World Toys? <span className='text-[purple]'><Link to="/register">Create Account</Link></span> </p>
                             <div className="divider">OR</div>
