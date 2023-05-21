@@ -10,6 +10,7 @@ import AllToys from "../component/AllToys/AllToys";
 import ShowDetail from "../component/ShowDetail/ShowDetail";
 import UpdateToy from "../component/UpdateToy/UpdateToy";
 import Blogs from "../component/Blogs/Blogs";
+import Page404 from "../component/Page404/Page404";
 
 const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
         },
       ]
     },
+    {
+      path: "*",
+      element: <Page404></Page404>
+    }
   ]);
 
 
