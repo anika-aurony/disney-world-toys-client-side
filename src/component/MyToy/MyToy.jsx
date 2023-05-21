@@ -62,9 +62,9 @@ const MyToy = () => {
                             <th>Toy</th>
                             <th>Name</th>
                             <th>Category</th>
-
-                            <th>Price</th>
                             <th>Quantity</th>
+                            <th>Price</th>
+                            
                             <th>Seller</th>
                             <th></th>
                             <th></th>
@@ -85,7 +85,7 @@ const MyToy = () => {
                                 <td>{mytoy.subcategory}</td>
 
                                 <td>{mytoy.quantity}</td>
-                                <td>{mytoy.price}</td>
+                                <td>${mytoy.price}</td>
                                 <td>{mytoy.sellerName}</td>
                                 <td><button className="btn btn-ghost btn-xs"><Link to={`/update/${mytoy._id}`}>Update</Link></button></td>
                                 <td><button className="btn btn-ghost btn-xs" onClick={() => handleDelete(mytoy._id)}>Delete</button></td>

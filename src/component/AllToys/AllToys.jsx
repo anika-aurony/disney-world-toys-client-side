@@ -25,7 +25,7 @@ const AllToys = () => {
                 <div className='flex '>
                     <div className="form-control">
 
-                        <input type="text" placeholder="Search" name='name' className="input input-bordered me-4" />
+                        <input type="text" placeholder="Search by name" name='name' className="input input-bordered me-4" />
                     </div>
                     <div className="form-control">
                         <button className="btn btn-primary bg-[purple]">Submit</button>
@@ -47,7 +47,7 @@ const AllToys = () => {
                             <td>{matchedToy.subcategory}</td>
 
                             <td>{matchedToy.quantity}</td>
-                            <td>{matchedToy.price}</td>
+                            <td>${matchedToy.price}</td>
                             <td>{matchedToy.sellerName}</td>
 
                         </tr>)
@@ -64,9 +64,9 @@ const AllToys = () => {
                             <th>Toy</th>
                             <th>Name</th>
                             <th>Category</th>
-
-                            <th>Price</th>
                             <th>Quantity</th>
+                            <th>Price</th>
+                            
                             <th>Seller</th>
                             <th></th>
                         </tr>
@@ -83,7 +83,7 @@ const AllToys = () => {
                                 <td>{toy.subcategory}</td>
 
                                 <td>{toy.quantity}</td>
-                                <td>{toy.price}</td>
+                                <td>${toy.price}</td>
                                 <td>{toy.sellerName}</td>
                                 <th>
                                     <button className="btn btn-ghost btn-xs"><Link to={`/showDetails/${toy._id}`} >details</Link></button>
