@@ -14,7 +14,7 @@ const UpdateToy = () => {
         const quantity = form.quantity.value;
         const description = form.description.value;
         const updatedToy = { price, description, quantity }
-        fetch(`http://localhost:5000/toys/${toy._id}`, {
+        fetch(`https://disney-world-toys-server-anika-tasnim-aurony.vercel.app/toys/${toy._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

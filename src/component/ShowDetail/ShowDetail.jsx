@@ -6,9 +6,9 @@ const ShowDetail = () => {
     const  [toy, setToy] = useState('');
     const params = useParams()
     console.log(toy)
-    console.log(`http://localhost:5000/toys/${params.id}`)
+    console.log(`https://disney-world-toys-server-anika-tasnim-aurony.vercel.app/toys/${params.id}`)
     useEffect(() => {
-        fetch(`http://localhost:5000/toys/${params.id}`)
+        fetch(`https://disney-world-toys-server-anika-tasnim-aurony.vercel.app/toys/${params.id}`)
             .then(res => res.json())
             .then(data => setToy(data))
     }, [])

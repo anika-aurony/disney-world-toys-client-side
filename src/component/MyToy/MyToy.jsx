@@ -8,7 +8,7 @@ const MyToy = () => {
     const { user } = useContext(AuthContext);
     const [mytoys, setmyToys] = useState('');
 
-    const url = `http://localhost:5000/toy?email=${user?.email}`
+    const url = `https://disney-world-toys-server-anika-tasnim-aurony.vercel.app/toy?email=${user?.email}`
     console.log(mytoys)
     useEffect(() => {
         fetch(url)
@@ -26,7 +26,7 @@ const MyToy = () => {
             denyButtonText: `Don't Delete`,
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toys/${id}`, {
+                fetch(`https://disney-world-toys-server-anika-tasnim-aurony.vercel.app/toys/${id}`, {
                     method: 'Delete'
                 })
                     .then(res => res.json())
@@ -79,7 +79,7 @@ const MyToy = () => {
                                     </div>
                                 </div></td>
                                 <td>{mytoy.name}</td>
-                                <td>{mytoy.name}</td>
+                                
                                 <td>{mytoy.subcategory}</td>
 
                                 <td>{mytoy.quantity}</td>

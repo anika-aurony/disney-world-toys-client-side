@@ -9,6 +9,7 @@ import MyToy from "../component/MyToy/MyToy";
 import AllToys from "../component/AllToys/AllToys";
 import ShowDetail from "../component/ShowDetail/ShowDetail";
 import UpdateToy from "../component/UpdateToy/UpdateToy";
+import Blogs from "../component/Blogs/Blogs";
 
 const router = createBrowserRouter([
     {
@@ -28,19 +29,23 @@ const router = createBrowserRouter([
             element: <Register></Register>
         },
         {
+            path: "/blogs",
+            element: <Blogs></Blogs>
+        },
+        {
             path: "/allToys",
             element: <AllToys></AllToys>,
-            loader: () => fetch('http://localhost:5000/toys')
+            loader: () => fetch('https://disney-world-toys-server-anika-tasnim-aurony.vercel.app/toys')
         },
         {
             path: `/showDetails/:id`,
             element: <PrivateRoutes><ShowDetail></ShowDetail></PrivateRoutes>,
-            // loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+            
         },
         {
             path: `/update/:id`,
             element: <UpdateToy></UpdateToy>,
-            loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+            loader: ({params}) => fetch(`https://disney-world-toys-server-anika-tasnim-aurony.vercel.app/toys/${params.id}`)
         },
         {
             path: "/addAToy",

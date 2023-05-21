@@ -20,7 +20,7 @@ const AddAToy = () => {
         const toy = { sellerName, price, rating, photo, email, name, subcategory, quantity, description }
         console.log(toy);
 
-        fetch('http://localhost:5000/toys', {
+        fetch('https://disney-world-toys-server-anika-tasnim-aurony.vercel.app/toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
