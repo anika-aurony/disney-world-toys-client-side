@@ -1,0 +1,12 @@
+@media only screen and (max-width:688px) {
+    .image-display{
+        display: none;
+    }
+    .mob-width{
+        width: 100%;
+    }
+    .padding-mob{
+        padding: '3px';
+    }
+
+}

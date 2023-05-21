@@ -1,0 +1,6 @@
+@media only screen and (max-width:688px) {
+    .mob-responsive{
+        display: flex;
+        flex-direction: column;
+    }
+}

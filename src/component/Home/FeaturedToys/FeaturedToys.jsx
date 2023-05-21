@@ -1,10 +1,10 @@
 import React from 'react';
-
+import "./FeaturedToys.css"
 const FeaturedToys = () => {
     return (
         <div>
             <h1 className='text-3xl text-center py-6' >About Disney Characters</h1>
-            <div className='p-6 hero-content lg-flex'>
+            <div className='p-6 hero-content  lg:flex  mob-responsive'>
                 <div className="card w-96 bg-base-100 shadow-xl bg-[#c7d2fe]" style={{height: '450px'}}>
                     <div className="card-body">
                         <h2 className="card-title text-center">Snow White</h2>

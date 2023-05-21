@@ -1,0 +1,10 @@
+/* .hover-img:hover img{
+    transform: rotate();
+} */
+/* 
+img {
+    transition: transform .7s ease-in-out;
+  } */
+  img:hover {
+    transform: rotate(360deg);
+  }
