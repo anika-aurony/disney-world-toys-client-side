@@ -5,6 +5,8 @@ import 'react-tabs/style/react-tabs.css';
 
 const ShopbyCategory = () => {
     const [toys, setToys] = useState('');
+    const [toys1, setToys1] = useState('');
+    const [toys2, setToys2] = useState('');
     useEffect(() => {
         fetch(`https://disney-world-toys-server-anika-tasnim-aurony.vercel.app/toys`)
             .then(res => res.json())
@@ -19,12 +21,12 @@ const ShopbyCategory = () => {
     const handlePrincessToy = () => {
         const Princess = toys.filter(toy => toy.subcategory === 'Disney Princess')
         console.log(Princess)
-        setToys(Princess)
+        setToys2(Princess)
     }
     const handleDonaldDuck = () => {
         const Duck = toys.filter(toy => toy.subcategory === 'Donald Duck')
         console.log(Duck)
-        setToys(Duck)
+        setToys1(Duck)
     }
 
     return (
@@ -71,32 +73,32 @@ const ShopbyCategory = () => {
                         </div>
                     </TabPanel>
                     }
-                    {toys && 
+                    {toys1 && 
                     <TabPanel>
                     <div className="hero-content flex-col lg:flex-row-reverse">
                             <div className="hero-content flex-col lg:flex-row">
-                                <img src={toys[0].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
+                                <img src={toys1[0].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
                                 <div className='ms-6'>
-                                    <h1 className="text-3xl font-bold">{toys[0].name}</h1>
+                                    <h1 className="text-3xl font-bold">{toys1[0].name}</h1>
                                    
-                                    <p className="pt-3 text-1xl "><b>Price:</b> ${toys[0].price}</p>
+                                    <p className="pt-3 text-1xl "><b>Price:</b> ${toys1[0].price}</p>
 
-                                    <p className=" text-1xl"><b>Rating:</b> {toys[0].rating}</p>
-                                    <button className='btn btn-ghost text-white my-3 bg-[purple]'><Link to={`/showDetails/${toys[0]._id}`}>View Details</Link></button>
+                                    <p className=" text-1xl"><b>Rating:</b> {toys1[0].rating}</p>
+                                    <button className='btn btn-ghost text-white my-3 bg-[purple]'><Link to={`/showDetails/${toys1[0]._id}`}>View Details</Link></button>
 
 
                                 </div>
                             </div>
                             <div className="hero-content flex-col lg:flex-row">
-                                <img src={toys[1].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
+                                <img src={toys1[1].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
                                 <div className='ms-6'>
-                                    <h1 className="text-3xl font-bold">{toys[1].name}</h1>
+                                    <h1 className="text-3xl font-bold">{toys1[1].name}</h1>
                                     
-                                    <p className="pt-3 text-1xl "><b>Price:</b> ${toys[1].price}</p>
+                                    <p className="pt-3 text-1xl "><b>Price:</b> ${toys1[1].price}</p>
 
-                                    <p className=" text-1xl"><b>Rating:</b> {toys[1].rating}</p>
+                                    <p className=" text-1xl"><b>Rating:</b> {toys1[1].rating}</p>
 
-                                    <button className='btn btn-ghost text-white my-3 bg-[purple]'><Link to={`/showDetails/${toys[1]._id}`}>View Details</Link></button>
+                                    <button className='btn btn-ghost text-white my-3 bg-[purple]'><Link to={`/showDetails/${toys1[1]._id}`}>View Details</Link></button>
 
                                 </div>
                             </div>
@@ -104,33 +106,33 @@ const ShopbyCategory = () => {
                     </TabPanel>
                     }
                     {
-                        toys && 
+                        toys2 && 
                         <TabPanel>
                     <div className="hero-content flex-col lg:flex-row-reverse">
                             <div className="hero-content flex-col lg:flex-row">
-                                <img src={toys[0].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
+                                <img src={toys2[0].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
                                 <div className='ms-6'>
-                                    <h1 className="text-3xl font-bold">{toys[0].name}</h1>
+                                    <h1 className="text-3xl font-bold">{toys2[0].name}</h1>
                                     
-                                    <p className="pt-3 text-1xl "><b>Price:</b> ${toys[0].price}</p>
+                                    <p className="pt-3 text-1xl "><b>Price:</b> ${toys2[0].price}</p>
 
-                                    <p className=" text-1xl"><b>Rating:</b> {toys[0].rating}</p>
+                                    <p className=" text-1xl"><b>Rating:</b> {toys2[0].rating}</p>
 
-                                    <button className='btn btn-ghost text-white my-3 bg-[purple]'><Link to={`/showDetails/${toys[0]._id}`}>View Details</Link></button>
+                                    <button className='btn btn-ghost text-white my-3 bg-[purple]'><Link to={`/showDetails/${toys2[0]._id}`}>View Details</Link></button>
 
 
                                 </div>
                             </div>
                             <div className="hero-content flex-col lg:flex-row">
-                                <img src={toys[1].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
+                                <img src={toys2[1].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
                                 <div className='ms-6'>
-                                    <h1 className="text-3xl font-bold">{toys[1].name}</h1>
+                                    <h1 className="text-3xl font-bold">{toys2[1].name}</h1>
                                     
-                                    <p className="pt-3 text-1xl "><b>Price:</b> ${toys[1].price}</p>
+                                    <p className="pt-3 text-1xl "><b>Price:</b> ${toys2[1].price}</p>
 
-                                    <p className=" text-1xl"><b>Rating:</b> {toys[1].rating}</p>
+                                    <p className=" text-1xl"><b>Rating:</b> {toys2[1].rating}</p>
 
-                                    <button className='btn btn-ghost text-white my-3 bg-[purple]'><Link to={`/showDetails/${toys[1]._id}`}>View Details</Link></button>
+                                    <button className='btn btn-ghost text-white my-3 bg-[purple]'><Link to={`/showDetails/${toys2[1]._id}`}>View Details</Link></button>
 
                                 </div>
                             </div>
