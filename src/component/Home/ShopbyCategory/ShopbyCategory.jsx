@@ -45,7 +45,7 @@ const ShopbyCategory = () => {
                                 <img src={toys[0].photo} className="max-w-sm rounded-lg shadow-1xl h-36 " />
                                 <div className='ms-6'>
                                     <h1 className="text-3xl font-bold">{toys[0].name}</h1>
-                                    <p className=" text-1xl pt-3"> {toys[0].description}</p>
+                                    
                                     <p className="pt-3 text-1xl "><b>Price:</b> ${toys[0].price}</p>
 
                                     <p className=" text-1xl"><b>Rating:</b> {toys[0].rating}</p>
@@ -58,7 +58,7 @@ const ShopbyCategory = () => {
                                 <img src={toys[1].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
                                 <div className='ms-6'>
                                     <h1 className="text-3xl font-bold">{toys[1].name}</h1>
-                                    <p className=" text-1xl pt-3"> {toys[1].description}</p>
+                                    
                                     <p className="pt-3 text-1xl "><b>Price:</b> ${toys[1].price}</p>
 
                                     <p className=" text-1xl"><b>Rating:</b> {toys[1].rating}</p>
@@ -78,7 +78,7 @@ const ShopbyCategory = () => {
                                 <img src={toys[0].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
                                 <div className='ms-6'>
                                     <h1 className="text-3xl font-bold">{toys[0].name}</h1>
-                                    <p className=" text-1xl pt-3"> {toys[0].description}</p>
+                                   
                                     <p className="pt-3 text-1xl "><b>Price:</b> ${toys[0].price}</p>
 
                                     <p className=" text-1xl"><b>Rating:</b> {toys[0].rating}</p>
@@ -91,7 +91,7 @@ const ShopbyCategory = () => {
                                 <img src={toys[1].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
                                 <div className='ms-6'>
                                     <h1 className="text-3xl font-bold">{toys[1].name}</h1>
-                                    <p className=" text-1xl pt-3"> {toys[1].description}</p>
+                                    
                                     <p className="pt-3 text-1xl "><b>Price:</b> ${toys[1].price}</p>
 
                                     <p className=" text-1xl"><b>Rating:</b> {toys[1].rating}</p>
@@ -111,7 +111,7 @@ const ShopbyCategory = () => {
                                 <img src={toys[0].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
                                 <div className='ms-6'>
                                     <h1 className="text-3xl font-bold">{toys[0].name}</h1>
-                                    <p className=" text-1xl pt-3"> {toys[0].description}</p>
+                                    
                                     <p className="pt-3 text-1xl "><b>Price:</b> ${toys[0].price}</p>
 
                                     <p className=" text-1xl"><b>Rating:</b> {toys[0].rating}</p>
@@ -125,7 +125,7 @@ const ShopbyCategory = () => {
                                 <img src={toys[1].photo} className="max-w-sm rounded-lg shadow-1xl h-36" />
                                 <div className='ms-6'>
                                     <h1 className="text-3xl font-bold">{toys[1].name}</h1>
-                                    <p className=" text-1xl pt-3"> {toys[1].description}</p>
+                                    
                                     <p className="pt-3 text-1xl "><b>Price:</b> ${toys[1].price}</p>
 
                                     <p className=" text-1xl"><b>Rating:</b> {toys[1].rating}</p>
